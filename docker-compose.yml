@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: data_clean
+    environment:
+      - POSTGRES_HOST=host.docker.internal  # Connect to the host's PostgreSQL database
+      - POSTGRES_DB=hospital_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_PORT=5432
+#    volumes:
+#      - ./app:/app
+    networks:
+      - hospital_network
+    command: ["python", "data-cleaner.py"]
+
+networks:
+  hospital_network:
+    driver: bridge

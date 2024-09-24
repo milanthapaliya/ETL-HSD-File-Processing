@@ -1,0 +1,96 @@
+{
+  "url": "https://www.cms.gov/Medicare/Medicare-Advantage/MedicareAdvantageApps",
+  "file_regex" : "2024 HSD Reference File Updated 10_18_2023",
+  "sheets" : ["Provider Time & Distance","Minimum Provider #s"],
+  "tables": [
+    {
+      "name": "time_and_distance",
+      "columns": [
+        {
+          "name": "county",
+          "type": "StringType"
+        },
+        {
+          "name": "st",
+          "type": "StringType"
+        },
+        {
+          "name": "county_state",
+          "type": "StringType"
+        },
+        {
+          "name": "ssa_code",
+          "type": "StringType"
+        },
+        {
+          "name": "county_designation",
+          "type": "StringType"
+        },
+        {
+          "name": "specialty",
+          "type": "StringType"
+        },
+        {
+          "name": "time",
+          "type": "DoubleType"
+        },
+        {
+          "name": "distance",
+          "type": "DoubleType"
+        },
+        {
+          "name": "specialty_cd",
+          "type": "StringType"
+        },
+        {
+          "name": "file_set",
+          "type": "StringType"
+        },
+        {
+          "name": "file_path",
+          "type": "StringType"
+        },
+        {
+          "name": "data_source",
+          "type": "StringType"
+        },
+        {
+          "name": "file_date",
+          "type": "StringType"
+        }
+      ]
+    },
+    {
+      "name": "minimums",
+      "columns": [
+        {
+          "name": "ssa_code",
+          "type": "StringType"
+        },
+        {
+          "name": "hsd_specialty_cd",
+          "type": "StringType"
+        },
+        {
+          "name": "min_provider_count",
+          "type": "IntegerType"
+        },
+        {
+          "name": "max_provider_distance",
+          "type": "DoubleType"
+        },
+        {
+          "name": "max_provider_time",
+          "type": "DoubleType"
+        }
+      ]
+    }
+  ],
+  "db_connection" : {
+    "host" : "host.docker.internal",
+    "db" : "hospital_db",
+    "user": "postgres",
+    "password": "postgres",
+    "port": "5432"
+  }
+}

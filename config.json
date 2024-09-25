@@ -91,6 +91,7 @@
     "db" : "hospital_db",
     "user": "postgres",
     "password": "postgres",
-    "port": "5432"
+    "port": "5432",
+    "driver": "org.postgresql.Driver"
   }
 }

@@ -63,11 +63,11 @@ for link in soup.find_all('a', href=True):
         file_url = link['href']
         break
 
-# Check if file_url was found and construct the full URL if necessary
-# if file_url:
-#     # Construct the full URL
-#     if not file_url.startswith('http'):
-#         file_url = f"https://www.cms.gov{file_url}"
+#Check if file_url was found and construct the full URL if necessary
+if file_url:
+    # Construct the full URL
+    if not file_url.startswith('http'):
+        file_url = f"https://www.cms.gov{file_url}"
 
 # Download the Excel file
     try:
@@ -112,7 +112,7 @@ records = []
 
 
 # Logic to extract time and distance for each row in dataframe_1
-for i in range(1,len(df_pandas_data_frame_1)):
+for i in range(len(df_pandas_data_frame_1)):
     for j in range(df_pandas_data_frame_2.shape[1]):
        if (j % 2 == 0):
 #         if pd.notnull(df_cleaned_frame_2.iloc[i, j]):

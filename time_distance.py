@@ -1,5 +1,4 @@
 import pandas as pd
-import gc
 
 def extract_time_and_distance(file_path):
     # Load the Excel sheet directly using Pandas
@@ -8,7 +7,6 @@ def extract_time_and_distance(file_path):
     # Extract data without headings
     df_pandas_data_frame_1 = df_pandas.drop(index=[0, 1, 2, 3])
     df_pandas_data_frame_2 = df_pandas.drop(index=[0, 1, 2, 3])
-
     # Get headings
     headings_frame_1 = df_pandas.loc[[1]]
     headings_frame_2 = df_pandas.loc[1:3]
@@ -53,7 +51,5 @@ def extract_time_and_distance(file_path):
 
     # Convert the records list into a DataFrame
     results_df = pd.DataFrame(records)
-    # Delete intermediate DataFrames to free up memory
-    del df_pandas, df_pandas_data_frame_1, df_pandas_data_frame_2, headings_frame_1, headings_frame_2
-    gc.collect()  # Optionally call garbage collector
+    results_df = results_df.replace('',None).dropna(subset=['time','distance'], how = 'all')
     return results_df

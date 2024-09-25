@@ -41,16 +41,13 @@ def extract_minimums(file_path, time_distance_dataframe):
 
     # Convert the records list into a DataFrame
     results_df = pd.DataFrame(records)
-    # Delete intermediate DataFrames to free up memory
-    del df_pandas, df_pandas_data_frame_1, df_pandas_data_frame_2, headings_frame_1, headings_frame_2
-    gc.collect()  # Optionally call garbage collector
     #perform join on time_distance_dataframe
     time_distance_dataframe = time_distance_dataframe[['specialty_code', 'time','distance','ssa_code']]
     time_distance_dataframe = time_distance_dataframe.rename(columns={
         'time': 'max_provider_time',
         'distance': 'max_provider_distance'
     })
-    # merged_df = pd.merge(results_df, time_distance_dataframe, left_on='hsd_specialty_cd', right_on='specialty_code', how='inner')
+   # results_df = results_df.replace('',None).dropna(subset=['time','distance'], how = 'all')
     merged_df = pd.merge(results_df, time_distance_dataframe,
                      left_on=['hsd_specialty_cd', 'ssa_code'],
                      right_on=['specialty_code', 'ssa_code'],

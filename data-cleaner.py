@@ -97,7 +97,6 @@ db_config = DatabaseConfig()
 jdbc_url = db_config.get_jdbc_url()
 connection_properties = db_config.get_connection_properties()
 
-
 # Save the Spark DataFrame to PostgreSQL using the JDBC connection
 df_time_and_distance.write \
     .jdbc(url=jdbc_url, table="time_and_distance", mode="overwrite", properties=connection_properties)

@@ -7,7 +7,7 @@ services:
     environment:
       - POSTGRES_HOST=host.docker.internal  # Connect to the host's PostgreSQL database
       - POSTGRES_DB=hospital_db
-      - POSTGRES_USER=postgres
+      - POSTGRES_USER=mthapaliya
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_PORT=5432
 #    volumes:

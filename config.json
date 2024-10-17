@@ -89,7 +89,7 @@
   "db_connection" : {
     "host" : "host.docker.internal",
     "db" : "hospital_db",
-    "user": "postgres",
+    "user": "mthapaliya",
     "password": "postgres",
     "port": "5432",
     "driver": "org.postgresql.Driver"
